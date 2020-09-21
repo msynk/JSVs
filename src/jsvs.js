@@ -21,8 +21,7 @@ var JSVs = (function () {
             function me(e) {
                 var attrs = e.attributes || {};
                 var idAttr = attrs['id'];
-                if (!idAttr) return;
-                if (context[idAttr.value]) throw new Error('duplicate HTML element id: ' + idAttr.value);
+                if (!idAttr || context[idAttr.value]) return;
                 context[idAttr.value] = e;
             }
         }
